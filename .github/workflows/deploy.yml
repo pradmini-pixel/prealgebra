@@ -35,13 +35,9 @@ jobs:
       - name: Build
         run: npm run build
 
-      # `enablement: true` turns on Pages (build type = GitHub Actions) via the
-      # API, so no manual "enable Pages" click is needed on the first run.
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
+      # Requires GitHub Pages to be enabled once with Source = "GitHub Actions"
+      # (Settings -> Pages). The build uses a relative base path, so no extra
+      # Pages configuration step is needed.
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
